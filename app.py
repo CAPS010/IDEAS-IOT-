@@ -1,0 +1,50 @@
+from datetime import datetime
+from flask import Flask,render_template
+from flask_sqlalchemy import SQLAlchemy
+import os
+
+app = Flask(__name__)
+
+# Configure PostgreSQL connection
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Aathi1212@localhost:5432/ideasiot'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)   
+
+# TABLE 1 LOGIN CREDENTIALS
+class User(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	username = db.Column(db.String(80), unique=True, nullable=False)
+	password_hash = db.Column(db.String(512), nullable=False)
+	email = db.Column(db.String(120), unique=True, nullable=False)
+	role = db.Column(db.String(50), nullable=False, default='Student')
+	last_login = db.Column(db.DateTime, nullable=True)
+	
+	def __repr__(self):
+		return f'<User {self.username}>'
+	
+class MotorData(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    motor_id = db.Column(db.String(50), nullable=False)
+    voltage = db.Column(db.Float, nullable=False)
+    current = db.Column(db.Float, nullable=False)
+    power = db.Column(db.Float, nullable=False)
+    over_voltage = db.Column(db.Float, nullable=False)
+    over_load_details = db.Column(db.String(255), nullable=True)
+    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f'<MotorData {self.motor_id} - Voltage: {self.voltage}, Current: {self.current}, Power: {self.power}>'
+
+@app.route('/')
+def hello():
+	return render_template('index.html')
+@app.route('/login')
+def login():
+	return render_template('login.html')
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+
+    app.run(debug=True)

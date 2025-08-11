@@ -1,0 +1,107 @@
+/* --- Import Futuristic Fonts from Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+/* --- General & Background Effects --- */
+body {
+    /* Font for all text, with fallback */
+    font-family: 'Share Tech Mono', monospace;
+    /* Core dark background color */
+    background-color: #0a0a14;
+    color: #e0e0e0;
+    /* Subtle scanlines effect for a CRT monitor feel */
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 255, 0.08),
+        rgba(0, 255, 255, 0.08) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* --- Form Container --- */
+/* We target the column class from your HTML */
+.col-md-6 {
+    background-color: rgba(10, 25, 47, 0.8);
+    border: 2px solid #00ffff; /* Neon cyan border */
+    padding: 40px;
+    /* Glowing effect for the container */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 5px rgba(0, 255, 255, 0.6) inset;
+    /* Clipped corners for a futuristic panel look */
+    clip-path: polygon(0% 15px, 15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%);
+}
+
+/* --- Typography & Header --- */
+h2 {
+    /* Futuristic heading font */
+    font-family: 'Orbitron', sans-serif;
+    color: #ff00ff; /* Neon magenta */
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+    /* Strong neon glow effect */
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* --- Form Elements --- */
+.form-label {
+    color: #00ffff; /* Neon cyan */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #00ffff; /* Underline style */
+    border-radius: 0; /* Sharp corners */
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    padding-left: 0;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    border-color: #ff00ff; /* Change color on focus */
+    color: #fff;
+    /* Remove default bootstrap shadow and add our own glow */
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+/* --- Buttons --- */
+.btn {
+    border-radius: 0; /* Sharp corners */
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    /* Neon button glow */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.btn-primary:hover {
+    background-color: #00ffff;
+    color: #0a0a14;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+.btn-link {
+    color: #ff00ff; /* Neon magenta for the secondary action */
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #ff00ff;
+    text-decoration: underline;
+}
