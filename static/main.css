@@ -1,0 +1,129 @@
+/* --- Import Futuristic Fonts from Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+/* --- General Body & Background --- */
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: #0a0a14;
+    color: #e0e0e0;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 255, 0.08),
+        rgba(0, 255, 255, 0.08) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    /* Add padding to the top to prevent content from hiding under the fixed navbar */
+    padding-top: 80px; 
+}
+
+/* --- Floating Navbar --- */
+.navbar {
+    position: fixed; /* Fixes the navbar to the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent background */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    border-bottom: 1px solid rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff00ff !important; /* Use !important to override Bootstrap's default */
+    text-shadow: 0 0 5px #ff00ff;
+    transition: all 0.3s ease;
+}
+.navbar-brand:hover {
+    text-shadow: 0 0 15px #ff00ff;
+}
+
+.nav-link {
+    color: #00ffff !important;
+    font-family: 'Share Tech Mono', monospace;
+    transition: all 0.3s ease;
+}
+.nav-link:hover {
+    color: #fff !important;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+/* --- General Content & Typography --- */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff00ff; /* Neon magenta */
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+    letter-spacing: 1px;
+}
+
+p.lead {
+    color: #c0c0c0;
+    font-size: 1.2rem;
+}
+
+/* --- Reusable Content Box (for forms, data panels, etc.) --- */
+.content-box {
+    background-color: rgba(10, 25, 47, 0.8);
+    border: 2px solid #00ffff; /* Neon cyan border */
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 5px rgba(0, 255, 255, 0.6) inset;
+    clip-path: polygon(0% 15px, 15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%);
+}
+
+/* --- Utility Class (for centering content like the login form) --- */
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px); /* Full height minus navbar padding */
+}
+
+/* --- Form & Button Styles (from your original file) --- */
+.form-label {
+    color: #00ffff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #00ffff;
+    border-radius: 0;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    padding-left: 0;
+}
+.form-control:focus {
+    background-color: transparent;
+    border-color: #ff00ff;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+.btn {
+    border-radius: 0;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+.btn-primary:hover {
+    background-color: #00ffff;
+    color: #0a0a14;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+.btn-link {
+    color: #ff00ff;
+    text-decoration: none;
+}
+.btn-link:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #ff00ff;
+}
