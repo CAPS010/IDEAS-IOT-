@@ -1,3 +1,4 @@
+---
 # Contributing to IDEAS-IOT
 
 Thank you for considering contributing to **IDEAS-IOT**!  
