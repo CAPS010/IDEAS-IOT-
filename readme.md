@@ -5,7 +5,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue)](https://www.postgresql.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A secure Flask application using *Flask-SQLAlchemy, **PostgreSQL, and **Werkzeug* for authentication.  
+A secure Flask application using **Flask-SQLAlchemy**, **PostgreSQL**, and **Werkzeug** for authentication.  
 The application uses environment variables to securely store database credentials.
 
 ---
@@ -32,7 +32,7 @@ The application uses environment variables to securely store database credential
 1. *Clone the repository*:
    ```bash
    git clone https://github.com/Aathisivansk/IDEAS-IOT-.git
-   cd <your-repo-name>
+   cd IDEAS-IOT-
 
 2. Create and activate a virtual environment:
 
