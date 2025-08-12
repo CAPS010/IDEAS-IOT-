@@ -1,8 +1,11 @@
 from datetime import datetime
 from flask import Flask, flash, redirect,render_template, request, session, url_for
+from flask.cli import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
+
+load_dotenv()
 
 app = Flask(__name__)
 # Secret key for session management
@@ -10,7 +13,7 @@ app.secret_key = os.urandom(24)
 
 
 # Configure PostgreSQL connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Aathi1212@localhost:5432/ideasiot'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)   
