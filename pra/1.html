@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <header class="top-bar">
+        <div class="left">
+            <h1>Testing</h1>
+        </div>
+        <nav>
+            <a href="#" onclick="showHome()">Home</a>
+            <a href="#">About</a>
+        </nav>
+        <div class="account">
+            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Account" class="account-logo">
+            <div class="dropdown">
+                <a href="#" onclick="changeAccount()">Change Account</a>
+                <a href="#">Account Details</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Side Menu -->
+    <aside class="sidebar">
+        <label for="motorSelect">Motors:</label>
+        <select id="motorSelect" onchange="showMotorDetails()">
+            <option value="">Select Motor</option>
+            <option value="m1">M1</option>
+            <option value="m2">M2</option>
+            <option value="m3">M3</option>
+            <option value="m4">M4</option>
+            <option value="m5">M5</option>
+        </select>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content" id="motorInfo"></main>
+
+    <!-- Popup Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Account Information</h2>
+            <p><strong>Email:</strong> student@example.com</p>
+            <p><strong>Roll Number:</strong> 12345</p>
+            <p><strong>Class:</strong> 10</p>
+            <p><strong>Section:</strong> A</p>
+        </div>
+    </div>
+
+    <script>
+        function showMotorDetails() {
+            const motorId = document.getElementById("motorSelect").value;
+            const info = document.getElementById("motorInfo");
+
+            if (motorId === "") {
+                info.innerHTML = "";
+                return;
+            }
+
+            info.innerHTML = `
+                <h2>Motor Details</h2>
+                <p><strong>Motor ID:</strong> ${motorId.toUpperCase()}</p>
+                <p><strong>Name:</strong> Motor ${motorId.toUpperCase()}</p>
+                <p><strong>Type:</strong> AC Induction</p>
+
+                <div class="gauges">
+                    <div class="gauge">
+                        <h3>Voltage</h3>
+                        <p id="voltageDisplay">-- V</p>
+                    </div>
+                    <div class="gauge">
+                        <h3>Current</h3>
+                        <p id="currentDisplay">-- A</p>
+                    </div>
+                    <div class="gauge">
+                        <h3>Power</h3>
+                        <p id="powerDisplay">-- W</p>
+                    </div>
+                </div>
+
+                <div class="alerts">
+                    <p><strong>Over-voltage:</strong> No</p>
+                    <p><strong>Overload:</strong> No</p>
+                </div>
+            `;
+        }
+
+        function showHome() {
+            document.getElementById("motorInfo").innerHTML = "";
+            document.getElementById("motorSelect").value = "";
+        }
+
+        function changeAccount() {
+            showHome();
+            document.getElementById("accountModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("accountModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
